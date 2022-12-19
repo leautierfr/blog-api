@@ -23,14 +23,14 @@ export function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a>
-              </li>
+              </li> */}
               <Link to="/">Home</Link>|<Link to="/about">About</Link>|<Link to="/signup">Signup</Link>|{" "}
-              <Link to="/login">Login</Link>
-              <li className="nav-item">
+              <Link to="/login">Login</Link>|<Link to="/postsnew">New Posts</Link>
+              {/* <li className="nav-item">
                 <a className="nav-link" href="#posts-index">
                   All posts
                 </a>
@@ -39,7 +39,7 @@ export function Header() {
                 <a className="nav-link" href="#posts-new">
                   New Post
                 </a>
-              </li>
+              </li> */}
               {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"

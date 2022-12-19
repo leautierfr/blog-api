@@ -81,7 +81,7 @@ export function Home() {
         <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onPostDestroy={handleDestroyPost} />
       </Modal>
 
-      <PostsNew onCreatePost={handleCreatePost} />
+      {/* <PostsNew onCreatePost={handleCreatePost} /> */}
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
     </div>
   );
