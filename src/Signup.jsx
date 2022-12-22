@@ -3,6 +3,8 @@ import { useState } from "react";
 
 export function Signup() {
   const [errors, setErrors] = useState([]);
+  const [name, setName] = useState("");
+  const [status, setStatus] = useState(undefined);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,14 +18,17 @@ export function Signup() {
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
       .catch((error) => {
+        setStatus(error.response.status);
         console.log(error.response.data.errors);
         setErrors(error.response.data.errors);
+        const [name, setName] = useState("");
       });
   };
 
   return (
     <div id="signup">
       <h1>Signup</h1>
+      {status ? <img src={`https://http.cat/${status}`} alt="" /> : null}
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
@@ -31,8 +36,17 @@ export function Signup() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input name="name" type="text" />
+          {/* Name: <input name="name" type="text" /> */}
+          Name:{" "}
+          <input
+            className="form-control"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            name="name"
+            type="text"
+          />
         </div>
+        <small>{20 - name.length} characters remaining</small>
         <div>
           Email: <input name="email" type="email" />
         </div>

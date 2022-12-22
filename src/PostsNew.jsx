@@ -1,21 +1,17 @@
-// import axios from "axios";
+import axios from "axios";
 
-// export function PostsNew(props) {
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     console.log("making a post");
-//     const params = new FormData(event.target);
-//     axios.post("http://localhost:3000/posts.json", params).then((response) => {
-//       console.log(response.data);
-//       event.target.reset();
-//     });
-//   };
 export function PostsNew(props) {
+  const handleCreatePost = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      console.log(response, "Creating a post!");
+      window.location.href = "/";
+    });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    console.log("handleSubmit", params);
-    props.onCreatePost(params);
+    console.log("handleSubmit new post");
+    handleCreatePost(params);
     event.target.reset();
   };
   return (
